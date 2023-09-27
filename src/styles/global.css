@@ -16,6 +16,9 @@
 		Helvetica Neue, Segoe UI, Apple SD Gothic Neo, Noto Sans KR, Malgun Gothic, 'Apple Color Emoji',
 		'Segoe UI Emoji', Segoe UI Symbol, sans-serif;
 	--COLORS-LINK: #3498db;
+	--shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.06);
+
+	--gap: 1.75rem;
 }
 
 body {
@@ -25,6 +28,7 @@ body {
 	width: 100vw;
 	overflow-x: hidden;
 	overflow-y: auto;
+	background: #f4f6f8;
 }
 
 thin {
@@ -41,6 +45,7 @@ a {
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
+	max-width: calc(100vw - 30px);
 }
 
 @media (min-width: 768px) {
