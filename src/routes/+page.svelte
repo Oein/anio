@@ -25,7 +25,7 @@
 		</a>
 		<div class="it1">
 			<Card style="height: 100%; box-sizing: border-box;">
-				<div class="title">많이 본 뉴스</div>
+				<div class="title">AI 추천 뉴스</div>
 				<div class="spliter" />
 				{#each MOST_VIEWS || [] as mostView}
 					<a class="newsItem" href={'/article/' + mostView.id}>{mostView.title}</a>

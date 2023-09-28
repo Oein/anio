@@ -19,6 +19,7 @@
 	--shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.06);
 
 	--gap: 1.75rem;
+	--hgap: calc(var(--gap) / 2);
 }
 
 body {

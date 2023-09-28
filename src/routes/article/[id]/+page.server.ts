@@ -13,6 +13,16 @@ export async function load({ params }) {
 		return {
 			notFound: true
 		};
+	await prisma.news.update({
+		where: {
+			id: params.id
+		},
+		data: {
+			viewCount: {
+				increment: 1
+			}
+		}
+	});
 	return {
 		article,
 		reco,
