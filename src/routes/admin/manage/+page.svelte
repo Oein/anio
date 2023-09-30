@@ -60,6 +60,27 @@
 		fetchData();
 		visiabler();
 	});
+
+	const tryDelete = async (id: string) => {
+		const pw = prompt('비밀번호를 입력하세요.');
+		const res = await fetch('/api/article/remove', {
+			method: 'POST',
+			body: JSON.stringify({
+				id: id,
+				password: pw
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		const dataSTR = await res.text();
+		const data = JSON.parse(dataSTR);
+		if (data.success) {
+			news = news.filter((n) => n.id !== id);
+		} else {
+			alert(data.error);
+		}
+	};
 </script>
 
 <div class="container">
@@ -72,6 +93,10 @@
 						<img src={news.image} alt="news" />
 						<div>
 							{news.title}
+							<!-- svelte-ignore a11y-click-events-have-key-events -->
+							<!-- svelte-ignore a11y-no-static-element-interactions -->
+							<!-- svelte-ignore a11y-missing-attribute -->
+							<a on:click={() => tryDelete(news.id)}>삭제</a>
 						</div>
 					</a>
 				{/key}
