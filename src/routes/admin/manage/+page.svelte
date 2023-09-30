@@ -67,7 +67,7 @@
 			method: 'POST',
 			body: JSON.stringify({
 				id: id,
-				password: pw
+				password: btoa(pw || '')
 			}),
 			headers: {
 				'Content-Type': 'application/json'
@@ -96,7 +96,15 @@
 							<!-- svelte-ignore a11y-click-events-have-key-events -->
 							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<!-- svelte-ignore a11y-missing-attribute -->
-							<a on:click={() => tryDelete(news.id)}>삭제</a>
+							<a
+								on:click={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									e.stopImmediatePropagation();
+
+									tryDelete(news.id);
+								}}>삭제</a
+							>
 						</div>
 					</a>
 				{/key}
