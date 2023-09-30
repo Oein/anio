@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from '@/routes/card.svelte';
 	import { onMount } from 'svelte';
+	import toast from 'svelte-french-toast';
 	import InfiniteScroll from 'svelte-infinite-scroll';
 	import { fade, draw, fly } from 'svelte/transition';
 
@@ -76,9 +77,10 @@
 		const dataSTR = await res.text();
 		const data = JSON.parse(dataSTR);
 		if (data.success) {
-			news = news.filter((n) => n.id !== id);
+			news = news.filter((n) => n.id != id);
+			toast.success('삭제되었습니다.');
 		} else {
-			alert(data.error);
+			toast.error('삭제에 실패했습니다.');
 		}
 	};
 </script>
