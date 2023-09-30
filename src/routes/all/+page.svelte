@@ -61,12 +61,12 @@
 </script>
 
 <div class="container">
-	<h1>글 관리</h1>
+	<h1>모든 뉴스</h1>
 	<Card>
 		<div class="cnt">
 			{#each news as news}
 				{#key news.id}
-					<a class="li" href={'/admin/write?id=' + news.id}>
+					<a class="li" href={'/article/' + news.id}>
 						<img src={news.image} alt="news" />
 						<div>
 							{news.title}
