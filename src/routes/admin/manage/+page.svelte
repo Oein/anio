@@ -2,8 +2,6 @@
 	import Card from '@/routes/card.svelte';
 	import { onMount } from 'svelte';
 	import toast from 'svelte-french-toast';
-	import InfiniteScroll from 'svelte-infinite-scroll';
-	import { fade, draw, fly } from 'svelte/transition';
 
 	type N = {
 		title: string;
